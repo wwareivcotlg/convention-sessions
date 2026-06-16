@@ -121,15 +121,17 @@
 <div class="wrap">
   <div class="app-header">
     <div class="header-badge"><span>Session Schedule</span></div>
-    <h1>National Convention 2025</h1>
+    <h1>National Convention 2026</h1>
     <p>Church of the Living God &middot; C.W.F.F.</p>
   </div>
 
   <div class="date-tabs">
-    <div class="date-tab active" onclick="switchDay('wed')">Wed &middot; Jul 9</div>
-    <div class="date-tab" onclick="switchDay('thu')">Thu &middot; Jul 10</div>
-    <div class="date-tab" onclick="switchDay('fri')">Fri &middot; Jul 11</div>
-    <div class="date-tab" onclick="switchDay('sat')">Sat &middot; Jul 12</div>
+    <div class="date-tab active" onclick="switchDay('tues')">Tues &middot; Jul 14</div>
+    <div class="date-tab" onclick="switchDay('wed')">Wed &middot; Jul 15</div>
+    <div class="date-tab" onclick="switchDay('thu')">Thu &middot; Jul 16</div>
+    <div class="date-tab" onclick="switchDay('fri')">Fri &middot; Jul 17</div>
+    <div class="date-tab" onclick="switchDay('sat')">Sat &middot; Jul 18</div>
+    <div class="date-tab" onclick="switchDay('sun')">Sun &middot; Jul 19</div>
   </div>
 
   <div class="filter-bar">
@@ -167,7 +169,7 @@ const TRACK_COLORS={worship:'#534AB7',leadership:'#B87A00',youth:'#0F6E56',minis
    To remove a session: delete its object from the array.
    ───────────────────────────────────────────── */
 const SESSIONS={
-  wed:[
+  tues:[
     {time:'9:00 AM',sessions:[
       {id:'w1',title:'Opening Worship & Praise Celebration',track:'worship',room:'Main Sanctuary',type:'Plenary',duration:'90 min',tags:['worship'],keynote:false,
        speaker:[{name:'Sis. Denise Morgan',init:'DM'},{name:'Bro. Calvin Price',init:'CP'}],
@@ -197,7 +199,7 @@ const SESSIONS={
        desc:'The first full evening worship service of convention, featuring the combined choir, praise dancers, and a message from Bishop Hayes.'},
     ]},
   ],
-  thu:[
+  wed:[
     {time:'8:00 AM',sessions:[
       {id:'t1',title:'Morning Devotional & Prayer',track:'worship',room:'Main Sanctuary',type:'Service',duration:'45 min',tags:['worship'],keynote:false,
        speaker:[{name:'Elder Mary Collins',init:'MC'}],
@@ -233,7 +235,7 @@ const SESSIONS={
        desc:'The official business session of the National Convention. Agenda items include bylaw amendments, national budget approval, and elections for vacant board positions.'},
     ]},
   ],
-  fri:[
+  thu:[
     {time:'8:00 AM',sessions:[
       {id:'f1',title:'Morning Devotional & Prayer',track:'worship',room:'Main Sanctuary',type:'Service',duration:'45 min',tags:['worship'],keynote:false,
        speaker:[{name:'Supt. Gary Preston',init:'GP'}],
@@ -261,7 +263,7 @@ const SESSIONS={
        desc:'A sacred consecration service focused on prayer, anointing, and commissioning. Participants are encouraged to come prepared for a time of deep spiritual renewal.'},
     ]},
   ],
-  sat:[
+  fri:[
     {time:'9:00 AM',sessions:[
       {id:'s1',title:'Ordination & Licensing Service',track:'worship',room:'Main Sanctuary',type:'Service',duration:'120 min',tags:['worship','ministry'],keynote:true,
        speaker:[{name:'Chief Overseer Williams',init:'CW'}],
@@ -289,7 +291,7 @@ const SESSIONS={
 };
 
 /* ─── State ─── */
-let activeDay='wed';
+let activeDay='tues';
 let activeFilter='all';
 
 /* ─── Build a single day panel ─── */
