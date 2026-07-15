@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>COTLG 134th National Convention 2026 — Session Schedule</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --purple:#3C3489;--purple-light:#EEEDFE;--purple-mid:#534AB7;--purple-dark:#26215C;
+    --gold:#B87A00;--gold-light:#FAEEDA;--gold-mid:#FAC775;--gold-dark:#633806;
+    --text-primary:#1a1a1a;--text-secondary:#6b6b6b;--text-tertiary:#a0a0a0;
+    --bg-primary:#ffffff;--bg-secondary:#f6f6f4;
+    --border-light:rgba(0,0,0,0.10);--border-medium:rgba(0,0,0,0.18);
+    --radius-md:8px;--radius-lg:12px;
+    --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  html,body{font-family:var(--font);background:var(--bg-secondary);color:var(--text-primary);min-height:100vh}
+  .wrap{max-width:480px;margin:0 auto;background:var(--bg-secondary);min-height:100vh}
+
+  /* ── Header ── */
+  .app-header{background:var(--purple-dark);padding:1.25rem 1rem 1rem;text-align:center;position:relative}
+  .header-badge{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.10);border-radius:99px;padding:4px 14px;margin-bottom:.5rem}
+  .header-badge span{font-size:11px;font-weight:500;color:#AFA9EC;letter-spacing:.5px;text-transform:uppercase}
+  .app-header h1{color:#FAC775;font-size:19px;font-weight:600;letter-spacing:.2px;line-height:1.2}
+  .app-header p{color:#AFA9EC;font-size:12px;margin-top:3px}
+  .header-theme{color:#FAC775;font-size:11px;font-style:italic;margin-top:5px;opacity:.85}
+
+  /* ── Info button ── */
+  .info-btn{position:absolute;top:.85rem;right:1rem;background:rgba(255,255,255,0.12);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FAC775;font-size:18px;-webkit-tap-highlight-color:transparent}
+  .info-btn:active{background:rgba(255,255,255,0.2)}
+  .info-btn-label{position:absolute;top:3.35rem;right:.6rem;font-size:9px;color:#AFA9EC;letter-spacing:.3px;text-transform:uppercase;font-weight:500}
+
+  /* ── Info drawer ── */
+  .info-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:100}
+  .info-overlay.open{display:block}
+  .info-drawer{display:none;position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--bg-primary);border-radius:18px 18px 0 0;z-index:101;max-height:82vh;overflow-y:auto;padding-bottom:2rem}
+  .drawer-handle{width:36px;height:4px;background:var(--border-medium);border-radius:2px;margin:12px auto 0}
+  .drawer-title{font-size:15px;font-weight:600;color:var(--text-primary);padding:.85rem 1rem .25rem;border-bottom:.5px solid var(--border-light)}
+  .info-tabs{display:flex;border-bottom:.5px solid var(--border-light);overflow-x:auto;scrollbar-width:none}
+  .info-tabs::-webkit-scrollbar{display:none}
+  .info-tab{flex:1;padding:.6rem .5rem;text-align:center;font-size:12px;font-weight:500;color:var(--text-secondary);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;min-width:72px;-webkit-tap-highlight-color:transparent}
+  .info-tab.active{color:var(--purple);border-bottom-color:var(--purple)}
+  .info-panel{display:none;padding:.85rem 1rem}
+  .info-panel.active{display:block}
+  .info-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);margin:.75rem 0 .4rem}
+  .info-section-title:first-child{margin-top:0}
+  .info-card{background:var(--bg-secondary);border-radius:var(--radius-md);padding:.7rem .85rem;margin-bottom:.5rem}
+  .info-card h4{font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:2px}
+  .info-card p{font-size:12px;color:var(--text-secondary);line-height:1.5}
+  .info-card a{color:var(--purple-mid);text-decoration:none;font-size:12px}
+  .ticket-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:.5px solid var(--border-light)}
+  .ticket-row:last-child{border-bottom:none}
+  .ticket-name{font-size:13px;color:var(--text-primary);flex:1}
+  .ticket-meta{font-size:11px;color:var(--text-secondary);margin-top:1px}
+  .ticket-price{font-size:14px;font-weight:600;color:var(--gold);flex-shrink:0;margin-left:.5rem}
+  .hours-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;color:var(--text-secondary)}
+  .hours-row span:first-child{color:var(--text-primary);font-weight:500}
+  .give-method{display:flex;gap:10px;align-items:flex-start;padding:.5rem 0;border-bottom:.5px solid var(--border-light)}
+  .give-method:last-child{border-bottom:none}
+  .give-num{width:24px;height:24px;border-radius:50%;background:var(--purple-dark);color:#FAC775;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .give-method p{font-size:12px;color:var(--text-secondary);line-height:1.5}
+  .give-method a{font-size:12px;color:var(--purple-mid);text-decoration:none;font-weight:500;display:inline-block;margin-top:4px}
+  .give-method h4{font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:2px}
+
+  /* ── Day tabs ── */
+  .date-tabs{display:flex;background:var(--bg-primary);border-bottom:.5px solid var(--border-light);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .date-tabs::-webkit-scrollbar{display:none}
+  .date-tab{flex:1;padding:.7rem .4rem;text-align:center;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-secondary);border-bottom:2.5px solid transparent;white-space:nowrap;min-width:72px;transition:color .15s,border-color .15s;-webkit-tap-highlight-color:transparent}
+  .date-tab.active{color:var(--purple);border-bottom-color:var(--purple)}
+
+  /* ── Filter bar ── */
+  .filter-bar{display:flex;gap:8px;padding:.65rem 1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--bg-primary);border-bottom:.5px solid var(--border-light)}
+  .filter-bar::-webkit-scrollbar{display:none}
+  .filter-pill{padding:5px 12px;border-radius:99px;border:.5px solid var(--border-medium);font-size:12px;cursor:pointer;white-space:nowrap;background:var(--bg-primary);color:var(--text-secondary);transition:all .15s;-webkit-tap-highlight-color:transparent;user-select:none}
+  .filter-pill.active{background:var(--gold-light);border-color:var(--gold);color:var(--gold-dark);font-weight:500}
+
+  /* ── Day panels ── */
+  .day-panel{display:none;padding-bottom:2rem}
+  .day-panel.active{display:block}
+  .time-group{padding:.85rem 1rem .35rem}
+  .time-label{font-size:11px;font-weight:700;color:var(--text-primary);text-transform:uppercase;letter-spacing:.7px;margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+  .time-label i{font-size:13px}
+  .time-label::after{content:'';flex:1;height:.5px;background:var(--border-light)}
+
+  /* ── Session cards ── */
+  .session-card{background:var(--bg-primary);border:.5px solid var(--border-light);border-radius:var(--radius-lg);margin-bottom:.65rem;overflow:hidden;cursor:pointer;transition:border-color .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+  .session-card:active{opacity:.92}
+  .session-card.expanded{border-color:rgba(83,74,183,0.4);box-shadow:0 0 0 2px rgba(83,74,183,0.08)}
+  .card-top{padding:.85rem 1rem .75rem;display:flex;gap:10px;align-items:flex-start}
+  .card-track{width:4px;min-width:4px;border-radius:2px;align-self:stretch;margin-top:2px;flex-shrink:0}
+  .card-body{flex:1;min-width:0}
+  .card-title{font-size:14px;font-weight:500;color:var(--text-primary);line-height:1.35;margin-bottom:5px}
+  .card-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+  .card-time-chip{font-size:12px;color:var(--text-secondary);display:inline-flex;align-items:center;gap:3px}
+  .card-time-chip i{font-size:12px}
+  .badge{font-size:11px;padding:2px 8px;border-radius:99px;display:inline-flex;align-items:center;gap:3px}
+  .badge i{font-size:11px}
+  .badge-room{background:var(--purple-light);color:var(--purple-mid)}
+  .badge-type{background:var(--bg-secondary);color:var(--text-secondary);border:.5px solid var(--border-light)}
+  .card-chevron{font-size:18px;color:var(--text-tertiary);transition:transform .22s;flex-shrink:0;margin-top:1px}
+  .session-card.expanded .card-chevron{transform:rotate(180deg)}
+  .card-details{display:none;padding:0 1rem 1rem;border-top:.5px solid var(--border-light)}
+  .session-card.expanded .card-details{display:block;padding-top:.85rem}
+  .detail-desc{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:.85rem}
+  .speakers-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:.4rem}
+  .speaker-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .speaker-chip{display:inline-flex;align-items:center;gap:6px;background:var(--gold-light);border-radius:99px;padding:4px 10px 4px 4px}
+  .speaker-avatar{width:24px;height:24px;border-radius:50%;background:var(--purple);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:#CECBF6;flex-shrink:0;letter-spacing:.3px}
+  .speaker-name{font-size:12px;color:var(--gold-dark);font-weight:400}
+  .keynote-flag{display:inline-flex;align-items:center;gap:4px;background:var(--purple-dark);color:#FAC775;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;margin-bottom:6px;letter-spacing:.3px}
+  .keynote-flag i{font-size:11px}
+  .empty-msg{text-align:center;padding:3rem 1rem;color:var(--text-secondary);font-size:13px}
+  .empty-msg i{font-size:28px;display:block;margin-bottom:.6rem;color:var(--text-tertiary)}
+
+  /* ── Legend ── */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;padding:.75rem 1rem;background:var(--bg-primary);border-top:.5px solid var(--border-light);margin-top:.5rem}
+  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-secondary)}
+  .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+  /* ── Theme toggle ── */
+  .theme-btn{position:absolute;top:.85rem;left:1rem;background:rgba(255,255,255,0.12);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#FAC775;font-size:18px;-webkit-tap-highlight-color:transparent}
+  .theme-btn:active{background:rgba(255,255,255,0.2)}
+  .theme-btn-label{position:absolute;top:3.35rem;left:.55rem;font-size:9px;color:#AFA9EC;letter-spacing:.3px;text-transform:uppercase;font-weight:500}
+
+  /* ── Light mode overrides ── */
+  body.light-mode{--text-primary:#1a1a1a;--text-secondary:#6b6b6b;--text-tertiary:#a0a0a0;--bg-primary:#ffffff;--bg-secondary:#f6f6f4;--border-light:rgba(0,0,0,0.10);--border-medium:rgba(0,0,0,0.18);--purple-light:#EEEDFE;--gold-light:#FAEEDA;--gold-dark:#633806}
+  body.dark-mode{--text-primary:#f0f0f0;--text-secondary:#aaaaaa;--text-tertiary:#6e6e6e;--bg-primary:#1e1e1e;--bg-secondary:#2a2a2a;--border-light:rgba(255,255,255,0.10);--border-medium:rgba(255,255,255,0.18);--purple-light:#2a2560;--gold-light:#3a2800;--gold-dark:#FAC775}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="app-header">
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><i class="ti ti-sun" id="theme-icon"></i></button>
+    <div class="theme-btn-label" id="theme-label">Light</div>
+    <button class="info-btn" onclick="openInfo()" aria-label="Convention Info"><i class="ti ti-info-circle"></i></button>
+    <div class="info-btn-label">More Info</div>
+    <div class="header-badge"><span>134th National Convention &middot; 38th Quadrennial</span></div>
+    <h1>National Convention 2026</h1>
+    <p>Church of the Living God &middot; C.W.F.F. &middot; St. Louis, MO</p>
+    <div class="header-theme">&#8220;What A Fellowship: One Faith, One Fellowship and One Future&#8221;</div>
+  </div>
+
+  <!-- Day tabs -->
+  <div class="date-tabs">
+    <div class="date-tab active" onclick="switchDay('tue')">Tue &middot; Jul 14</div>
+    <div class="date-tab" onclick="switchDay('wed')">Wed &middot; Jul 15</div>
+    <div class="date-tab" onclick="switchDay('thu')">Thu &middot; Jul 16</div>
+    <div class="date-tab" onclick="switchDay('fri')">Fri &middot; Jul 17</div>
+    <div class="date-tab" onclick="switchDay('sat')">Sat &middot; Jul 18</div>
+    <div class="date-tab" onclick="switchDay('sun')">Sun &middot; Jul 19</div>
+  </div>
+
+  <!-- Filter pills -->
+  <div class="filter-bar">
+    <div class="filter-pill active" onclick="setFilter('all',this)">All</div>
+    <div class="filter-pill" onclick="setFilter('worship',this)">Worship</div>
+    <div class="filter-pill" onclick="setFilter('leadership',this)">Leadership</div>
+    <div class="filter-pill" onclick="setFilter('yam',this)">YAM</div>
+    <div class="filter-pill" onclick="setFilter('youth',this)">Youth</div>
+    <div class="filter-pill" onclick="setFilter('ministry',this)">Ministry</div>
+    <div class="filter-pill" onclick="setFilter('health',this)">Health</div>
+  </div>
+
+  <!-- Day panels -->
+  <div id="day-tue" class="day-panel active"></div>
+  <div id="day-wed" class="day-panel"></div>
+  <div id="day-thu" class="day-panel"></div>
+  <div id="day-fri" class="day-panel"></div>
+  <div id="day-sat" class="day-panel"></div>
+  <div id="day-sun" class="day-panel"></div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#534AB7"></div>Worship</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#B87A00"></div>Leadership</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0F6E56"></div>YAM</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#185FA5"></div>Youth</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#993C1D"></div>Ministry</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2E7D6B"></div>Health</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#888780"></div>General</div>
+  </div>
+</div>
+
+<!-- Info overlay -->
+<div class="info-overlay" id="infoOverlay" onclick="closeInfo()"></div>
+<div class="info-drawer" id="infoDrawer">
+  <div class="drawer-handle"></div>
+  <div class="drawer-title">Convention Info &amp; Resources</div>
+  <div class="info-tabs">
+    <div class="info-tab active" onclick="switchInfoTab('venue')">Venue</div>
+    <div class="info-tab" onclick="switchInfoTab('tickets')">Tickets</div>
+    <div class="info-tab" onclick="switchInfoTab('hours')">Hours</div>
+    <div class="info-tab" onclick="switchInfoTab('dining')">Dining</div>
+    <div class="info-tab" onclick="switchInfoTab('shopping')">Shopping</div>
+    <div class="info-tab" onclick="switchInfoTab('medical')">Medical</div>
+  </div>
+
+  <!-- Venue -->
+  <div class="info-panel active" id="tab-venue">
+    <div class="info-section-title">Convention Venue</div>
+    <div class="info-card">
+      <h4>Sheraton Chalet Westport Hotel</h4>
+      <p>191 Westport Plaza<br>Maryland Heights, MO</p>
+    </div>
+    <div class="info-section-title">Room Locations</div>
+    <div class="info-card">
+      <h4>Main Sessions</h4><p>Versailles Ballroom</p>
+    </div>
+    <div class="info-card">
+      <h4>Youth / YPPU Sessions</h4><p>Zurich Ballroom</p>
+    </div>
+    <div class="info-card">
+      <h4>National Convention Registration</h4><p>Davos Room</p>
+    </div>
+    <div class="info-card">
+      <h4>Convention Services</h4><p>Lobby Foyer</p>
+    </div>
+    <div class="info-card">
+      <h4>General Secretary Office</h4><p>Lugano</p>
+    </div>
+    <div class="info-card">
+      <h4>General Treasurer Office</h4><p>Lugano</p>
+    </div>
+    <div class="info-card">
+      <h4>Christian Education Office</h4><p>Zurich Ballroom</p>
+    </div>
+    <div class="info-card">
+      <h4>Vendor Location</h4><p>Foyer of Versailles</p>
+    </div>
+    <div class="info-card">
+      <h4>Prayer Room</h4><p>Available Tuesday, July 14 – Friday, July 17</p>
+    </div>
+  </div>
+
+  <!-- Tickets -->
+  <div class="info-panel" id="tab-tickets">
+    <div class="info-section-title">Ticketed Events</div>
+    <div class="ticket-row">
+      <div>
+        <div class="ticket-name">National Women's Work Luncheon</div>
+        <div class="ticket-meta">Thu, Jul 16 &middot; 12:00 PM &middot; Hotel East A/B Tower</div>
+      </div>
+      <div class="ticket-price">$50</div>
+    </div>
+    <div class="ticket-row">
+      <div>
+        <div class="ticket-name">National Usher's Luncheon</div>
+        <div class="ticket-meta">Thu, Jul 16 &middot; 12:00 PM &middot; Hotel East C</div>
+      </div>
+      <div class="ticket-price">$50</div>
+    </div>
+    <div class="ticket-row">
+      <div>
+        <div class="ticket-name">National Minister's Wives Luncheon</div>
+        <div class="ticket-meta">Fri, Jul 17 &middot; 1:00 PM &middot; Hotel East B/C Tower</div>
+      </div>
+      <div class="ticket-price">$50</div>
+    </div>
+    <div class="ticket-row">
+      <div>
+        <div class="ticket-name">Men's Ministry Excursion — The Rawlings Experience</div>
+        <div class="ticket-meta">Fri, Jul 17 &middot; 1:00 PM &middot; Offsite</div>
+      </div>
+      <div class="ticket-price">$65</div>
+    </div>
+    <div class="ticket-row">
+      <div>
+        <div class="ticket-name">National Awards Gala</div>
+        <div class="ticket-meta">Sat, Jul 18 &middot; 7:00 PM &middot; Zurich Ballroom</div>
+      </div>
+      <div class="ticket-price">$60</div>
+    </div>
+  </div>
+
+  <!-- Hours -->
+  <div class="info-panel" id="tab-hours">
+    <div class="info-section-title">Vendor Hours</div>
+    <div class="info-card"><p>Daily 9:00 AM – 10:00 PM<br><em>Closed during all worship services</em></p></div>
+    <div class="info-section-title">General Secretary &amp; Treasurer — Tue–Fri</div>
+    <div class="info-card">
+      <div class="hours-row"><span>Morning</span><span>9:30 AM – 12:00 PM</span></div>
+      <div class="hours-row"><span>Midday</span><span>1:30 PM – 2:00 PM</span></div>
+      <div class="hours-row"><span>Afternoon</span><span>3:00 PM – 6:30 PM</span></div>
+    </div>
+    <div class="info-section-title">General Secretary &amp; Treasurer — Sat–Sun</div>
+    <div class="info-card">
+      <div class="hours-row"><span>Morning</span><span>8:00 AM – 9:00 AM</span></div>
+      <div class="hours-row"><span>Afternoon</span><span>2:00 PM – 4:00 PM</span></div>
+    </div>
+    <div class="info-section-title">Registration Hours</div>
+    <div class="info-card">
+      <div class="hours-row"><span>Wednesday</span><span>7:30–10:30 AM &amp; 5:00–7:00 PM</span></div>
+      <div class="hours-row"><span>Thu – Fri</span><span>8:00–10:30 AM &amp; 5:00–7:00 PM</span></div>
+    </div>
+  </div>
+
+  <!-- Dining -->
+  <div class="info-panel" id="tab-dining">
+    <div class="info-section-title">Restaurants</div>
+    <div class="info-card"><h4>Gioia's Deli</h4><p>11855 Adie Rd, Maryland Heights, MO 63043</p></div>
+    <div class="info-card"><h4>Gobble Stop Smokehouse</h4><p>1227 Castillon Arcade Plaza, Creve Coeur, MO 63141</p></div>
+    <div class="info-card"><h4>Gulf Shores Restaurant &amp; Grill</h4><p>12528 Olive Blvd, Creve Coeur, MO 63141</p></div>
+    <div class="info-card"><h4>Chef Daddy's-STL</h4><p>9617 St. Charles Rock Rd, Breckenridge Hills, MO 63114</p></div>
+    <div class="info-card"><h4>Bristol Seafood Grill</h4><p>11801 Olive Blvd, Creve Coeur, MO 63141</p></div>
+    <div class="info-card"><h4>Basso – On The Plaza</h4><p>545 West Port Plaza Dr, Maryland Heights, MO 63146</p></div>
+    <div class="info-section-title">Cafes</div>
+    <div class="info-card"><h4>Ethio Coffee</h4><p>12670 Dorsett Rd, Maryland Heights, MO 63043</p></div>
+    <div class="info-card"><h4>The Foundry Bakery</h4><p>11424 Dorsett Rd, Maryland Heights, MO 63043</p></div>
+    <div class="info-card"><h4>Sweet Spot Cafe</h4><p>3586 Adie Rd, St. Ann, MO 63074</p></div>
+  </div>
+
+  <!-- Shopping -->
+  <div class="info-panel" id="tab-shopping">
+    <div class="info-section-title">Shopping</div>
+    <div class="info-card"><h4>The Delmar Loop — University City</h4><p>6504 Delmar Blvd, University City, MO 63130</p></div>
+    <div class="info-card"><h4>Walmart</h4><p>11900 St. Charles Rock Rd, Bridgeton, MO 63044</p></div>
+    <div class="info-card"><h4>St. Louis Premium Outlets</h4><p>18521 Outlet Blvd, Chesterfield, MO 63005</p></div>
+    <div class="info-section-title">Attractions</div>
+    <div class="info-card"><h4>Gateway Arch</h4><p>11 North Fourth Street, St. Louis, MO 63102</p></div>
+    <div class="info-card"><h4>St. Louis Forest Park</h4><p>1 Government Drive, St. Louis, MO 63110</p></div>
+    <div class="info-card"><h4>The Magic House — St. Louis Children's Museum</h4><p>516 South Kirkwood Rd, Kirkwood, MO 63122</p></div>
+    <div class="info-card"><h4>National Blues Museum</h4><p>615 Washington Ave, St. Louis, MO 63101</p></div>
+    <div class="info-card"><h4>St. Louis Union Station &amp; Aquarium</h4><p>1820 Market Street, St. Louis, MO 63103</p></div>
+  </div>
+
+  <!-- Medical -->
+  <div class="info-panel" id="tab-medical">
+    <div class="info-section-title">Urgent Care</div>
+    <div class="info-card">
+      <h4>SSM Health Urgent Care</h4>
+      <p>2022 Dorsett Village, Maryland Heights, MO 63043</p>
+      <a href="tel:3145900520">(314) 590-0520</a>
+    </div>
+    <div class="info-section-title">Hospital</div>
+    <div class="info-card">
+      <h4>Mercy Hospital St. Louis</h4>
+      <p>615 South New Ballas Rd, St. Louis, MO 63141</p>
+      <a href="tel:3142516000">(314) 251-6000</a>
+    </div>
+    <div class="info-section-title">Pharmacy (24 Hr)</div>
+    <div class="info-card">
+      <h4>Walgreens Pharmacy</h4>
+      <p>12661 Olive Blvd, Creve Coeur, MO 63141</p>
+      <a href="tel:3148784413">(314) 878-4413</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ── Track colors ── */
+const TRACK_COLORS={worship:'#534AB7',leadership:'#B87A00',yam:'#0F6E56',youth:'#185FA5',ministry:'#993C1D',health:'#2E7D6B',general:'#888780'};
+
+/* ─────────────────────────────────────────────
+   SESSION DATA — 134th National Convention 2026
+   Sheraton Chalet Westport Hotel · St. Louis, MO
+   July 14–19, 2026
+
+   To ADD a session: copy any session object, paste
+   into the correct day array, update all fields.
+   To REMOVE: delete its object.
+   tags[] controls which filter pill shows it.
+   keynote:true adds the gold "Keynote" flag.
+   ───────────────────────────────────────────── */
+const SESSIONS={
+  tue:[
+    {time:'10:00 AM',sessions:[
+      {id:'tu1',title:'Set Up',track:'general',room:'Versailles Ballroom',type:'Setup',duration:'TBD',tags:['leadership'],keynote:false,
+       speaker:[{name:'Convention Team',init:'CT'}],
+       desc:'Convention setup and load-in for the Versailles Ballroom.'},
+    ]},
+    {time:'4:00 PM',sessions:[
+      {id:'tu2',title:'National Choir Rehearsal',track:'ministry',room:'Versailles Ballroom',type:'Rehearsal',duration:'1 hr',tags:['ministry'],keynote:false,
+       speaker:[{name:'Elder Jason Williams',init:'JW'},{name:'Dorsey Doss',init:'DD'}],
+       desc:'Official rehearsal for the National Choir in preparation for convention worship services.'},
+    ]},
+    {time:'7:00 PM',sessions:[
+      {id:'tu3',title:'Ecumenical and Dedication Service',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'2+ hrs',tags:['worship'],keynote:true,
+       speaker:[{name:'Bishop Stephen Hawkins',init:'SH'},{name:'Bishop A. Keith Smith',init:'AK'},{name:'Bishop McKeever Murray',init:'MM'}],
+       desc:'The official opening Ecumenical and Dedication Service of the 134th National Convention. Features the processional of district banners, the National Adjutant Core, National Women\'s Work Ministry, and National Overseer\'s Council. Includes the Act of Dedication, Articles of Faith, and sermon by Bishop Stephen Hawkins. Presiding Prelate, District 2.'},
+    ]},
+    {time:'9:30 PM',sessions:[
+      {id:'tu4',title:'Business Meeting — National Auxiliary Appointments',track:'leadership',room:'Versailles Ballroom',type:'Business',duration:'TBD',tags:['leadership'],keynote:false,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'}],
+       desc:'Opening business meeting presided over by Chief Bishop Rex Waddell. National auxiliary appointments will be announced.'},
+    ]},
+  ],
+  wed:[
+    {time:'9:30 AM',sessions:[
+      {id:'w1',title:'Visual Arts Display',track:'ministry',room:'Bern Foyer',type:'Display',duration:'All Day',tags:['ministry'],keynote:false,
+       speaker:[{name:'Visual Arts Team',init:'VA'}],
+       desc:'Visual arts display open in the Bern Foyer. Sign-up for visual arts participation available 3:30–6:00 PM in Alpine II.'},
+    ]},
+    {time:'8:30 AM',sessions:[
+      {id:'w2',title:'Morning Praise and Worship Service',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'60 min',tags:['worship'],keynote:false,
+       speaker:[{name:'Elder Kori Goudeau',init:'KG'}],
+       desc:'Morning Praise and Worship Service. Morning Exhortation delivered by Elder Kori Goudeau, Temple #36, Wichita, KS, District 7.'},
+    ]},
+    {time:'9:00 AM',sessions:[
+      {id:'w4',title:'National Credential Committee',track:'leadership',room:'TBD',type:'Meeting',duration:'9:00 AM–12:00 PM',tags:['leadership'],keynote:false,
+       speaker:[{name:'Credential Committee',init:'CC'}],
+       desc:'National Credential Committee convenes to review and process delegate credentials.'},
+      {id:'w5',title:'YPPU / Sunday School Opening Session',track:'youth',room:'Zurich Ballroom',type:'Service',duration:'30 min',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Leadership',init:'YL'}],
+       desc:'YPPU and Sunday School opening session including the YPPU Pledge and YPPU Song.'},
+    ]},
+    {time:'9:30 AM',sessions:[
+      {id:'w9b',title:'National Women\'s Work Ministry — Session 1: Prayer',track:'ministry',room:'TBD',type:'Workshop',duration:'Morning',tags:['ministry'],keynote:false,
+       speaker:[{name:'Evangelist Willa Brown',init:'WB'}],
+       desc:'Build strong, consistent prayer lives through realistic daily, weekly, and corporate prayer rhythms that fit your season of life. Speaker: Evangelist Willa Brown.'},
+    ]},
+    {time:'9:45 AM',sessions:[
+      {id:'w9',title:'National Men\'s Ministry — Fourth Quarter Faith: Finishing Strong as Men of God',track:'ministry',room:'Bern',type:'Workshop',duration:'60 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Dr. Stewart Gilbert',init:'SG'}],
+       desc:'This workshop provides men with tools to successfully navigate various seasons of a man\'s life, with a focus on finishing strong in faith. Speaker: Dr. Stewart Gilbert.'},
+      {id:'w11',title:'YAM Masterclass — Walk It Like I Talk It',track:'yam',room:'Versailles Ballroom',type:'Workshop',duration:'60 min',tags:['yam'],keynote:false,
+       speaker:[{name:'Evangelist Joy Morgan',init:'JM'}],
+       desc:'Young Adult Ministry Masterclass. Discussion on how to align your actions and speech with God\'s purpose for your life. Speaker: Evangelist Joy Morgan.'},
+    ]},
+    {time:'10:15 AM',sessions:[
+      {id:'w10',title:'National Music Ministry — The Reason Why We Sing',track:'worship',room:'Alpine I',type:'Workshop',duration:'60 min',tags:['worship'],keynote:false,
+       speaker:[{name:'Elder Jason Williams',init:'JW'}],
+       desc:'A music ministry workshop exploring the purpose and power of worship through song. Speaker: Elder Jason Williams.'},
+    ]},
+    {time:'10:20 AM',sessions:[
+      {id:'w6',title:'Youth Breakout Sessions — Ages 4–17',track:'youth',room:'Zurich Ballroom',type:'Breakout',duration:'10:20 AM–12:30 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Evang. Debbie Gildon',init:'DG'},{name:'Sis. Mardena Pullan',init:'MP'},{name:'Sis. Tiffany Shufford',init:'TS'},{name:'Sis. Brooklyn Dean',init:'BD'},{name:'Ellis Mimms',init:'EM'}],
+       desc:'Age-group breakout sessions: Ages 4–6 "God Made You Special" (Evang. Debbie Gildon); Ages 7–9 "God Made You Special" (Sis. Mardena Pullan); Ages 10–12 "Made in His Image" (Sis. Tiffany Shufford); Ages 13–17 "His Design My" (Sis. Brooklyn Dean & Ellis Mimms). Lunch included 11:20 AM–12:30 PM.'},
+    ]},
+    {time:'11:00 AM',sessions:[
+      {id:'w12',title:'Inspirational Pathways of Leadership Graduation',track:'leadership',room:'Versailles Ballroom',type:'Ceremony',duration:'30 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Leadership Team',init:'LT'}],
+       desc:'Graduation ceremony for the Inspirational Pathways of Leadership program.'},
+    ]},
+    {time:'11:30 AM',sessions:[
+      {id:'w13',title:'National Usher Ministry Meeting',track:'ministry',room:'Bern',type:'Meeting',duration:'60 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Bro. Ernest Woods',init:'EW'}],
+       desc:'Business meeting for the National Usher Ministry to align on convention duties and assignments.'},
+    ]},
+    {time:'1:00 PM',sessions:[
+      {id:'w14',title:'Business Session',track:'leadership',room:'Versailles Ballroom',type:'Business',duration:'60 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'}],
+       desc:'Afternoon business session of the National Convention.'},
+      {id:'w7',title:'Youth Choir Rehearsal',track:'youth',room:'Zurich Ballroom',type:'Rehearsal',duration:'1:00–2:45 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Music Team',init:'YM'}],
+       desc:'Youth Choir Rehearsal for all ages.'},
+    ]},
+    {time:'2:00 PM',sessions:[
+      {id:'w15',title:'National Ordination Committee',track:'leadership',room:'Alpine I',type:'Meeting',duration:'2:00–4:30 PM',tags:['leadership'],keynote:false,
+       speaker:[{name:'Overseer Elston Carter',init:'EC'}],
+       desc:'National Ordination Committee meeting.'},
+      {id:'w16',title:'National Credential Committee (Continued)',track:'leadership',room:'Versailles Foyer',type:'Meeting',duration:'2:00–5:00 PM',tags:['leadership'],keynote:false,
+       speaker:[{name:'Credential Committee',init:'CC'}],
+       desc:'Continuation of the National Credential Committee review process.'},
+    ]},
+    {time:'2:30 PM',sessions:[
+      {id:'w17',title:'National Women\'s Work Ministry Workshop — Arts & Crafts',track:'ministry',room:'Matterhorn',type:'Workshop',duration:'2 hrs',tags:['ministry'],keynote:false,
+       speaker:[{name:'Dallas Johnson',init:'DJ'},{name:'Natalie Morgan',init:'NM'},{name:'Linda Nichols',init:'LN'}],
+       desc:'Create bookmarks, purpose bracelets, Praise & Prayer Journals, and add your purpose in Christ to a Vision Wall. A creative session for reflection and discovery.'},
+      {id:'w17b',title:'Ministerial Institute — The R.E.A.L. Meaning of Success',track:'leadership',room:'Bern',type:'Workshop',duration:'2:30–3:30 PM',tags:['leadership'],keynote:false,
+       speaker:[{name:'Bishop S.T. Goodlow',init:'SG'}],
+       desc:'Ministerial Institute session. Theme: "The R.E.A.L. Meaning of Success." Speaker: Bishop S.T. Goodlow, Retired Bishop.'},
+    ]},
+    {time:'2:50 PM',sessions:[
+      {id:'w8',title:'Youth Praise Dance Rehearsal',track:'youth',room:'Zurich Ballroom',type:'Rehearsal',duration:'2:50–4:00 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Dance Team',init:'YD'}],
+       desc:'Youth Praise Dance Rehearsal for all ages. Parent Pick Up at 4:00 PM.'},
+    ]},
+    {time:'4:00 PM',sessions:[
+      {id:'w18',title:'National Choir Rehearsal',track:'ministry',room:'Versailles Ballroom',type:'Rehearsal',duration:'60 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Elder Jason Williams',init:'JW'},{name:'Dorsey Doss',init:'DD'}],
+       desc:'National Choir rehearsal in preparation for the evening worship service.'},
+      {id:'w19',title:'National Minister\'s Wives Staff Meeting',track:'ministry',room:'Bern',type:'Meeting',duration:'60 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Evang. Roslyn Waddell',init:'RW'}],
+       desc:'Staff meeting for the National Minister\'s Wives.'},
+    ]},
+    {time:'6:00 PM',sessions:[
+      {id:'w20',title:'Covenant Partner\'s Reception',track:'ministry',room:'Bern',type:'Reception',duration:'60 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Bishop McKeever Murray',init:'MM'}],
+       desc:'Special reception honoring Covenant Partners — those who gave a sacrificial offering of $100 or more. Covenant Partners receive an official COTLG lapel pin.'},
+    ]},
+    {time:'7:00 PM',sessions:[
+      {id:'w21',title:'Evening Worship Service',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'2 hrs',tags:['worship'],keynote:false,
+       speaker:[{name:'Elder Riley Baxter, III',init:'RB'}],
+       desc:'Evening Worship Service. Sermon delivered by Elder Riley Baxter, III. Features National Chorus selections, official welcome by Missionary Laura Johnson (Temple #78, District 2, Chicago, IL).'},
+    ]},
+    {time:'9:00 PM',sessions:[
+      {id:'w8b',title:'Youth Presentation / Game Night',track:'youth',room:'Zurich Ballroom',type:'Event',duration:'9:00–11:00 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Leadership',init:'YL'}],
+       desc:'Youth Presentation and Game Night.'},
+    ]},
+    {time:'9:30 PM',sessions:[
+      {id:'w22',title:'YAM Group Bible Study — Let\'s Talk About Jesus',track:'yam',room:'Alpine I',type:'Bible Study',duration:'90 min',tags:['yam'],keynote:false,
+       speaker:[{name:'Evangelist Jacqueline Sheffield',init:'JS'}],
+       desc:'National Young Adult Ministry late-night Group Bible Study. Theme: "Let\'s Talk About Jesus." Speaker: Evangelist Jacqueline Sheffield.'},
+      {id:'w23',title:'National Minister\'s Wives Round Table',track:'ministry',room:'Bern',type:'Meeting',duration:'2 hrs',tags:['ministry'],keynote:false,
+       speaker:[{name:'Evang. Roslyn Waddell',init:'RW'}],
+       desc:'National Minister\'s Wives Round Table discussion.'},
+    ]},
+  ],
+  thu:[
+    {time:'8:00 AM',sessions:[
+      {id:'t1',title:'Visual Arts Display',track:'ministry',room:'Bern Foyer',type:'Display',duration:'All Day',tags:['ministry'],keynote:false,
+       speaker:[{name:'Visual Arts Team',init:'VA'}],
+       desc:'Visual arts display open in the Bern Foyer.'},
+    ]},
+    {time:'8:30 AM',sessions:[
+      {id:'t2',title:'Morning Praise and Worship Service',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'60 min',tags:['worship'],keynote:false,
+       speaker:[{name:'Evangelist Tangella Brown',init:'TB'}],
+       desc:'Morning Praise and Worship Service. Morning Exhortation delivered by Evangelist Tangella Brown, Temple #361 & #351, Celina, TX and Memphis, TN, Districts 10 and 8.'},
+    ]},
+    {time:'9:00 AM',sessions:[
+      {id:'t3',title:'Youth Ice Breaker',track:'youth',room:'Zurich Ballroom',type:'Event',duration:'60 min',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Leadership',init:'YL'}],
+       desc:'Youth Ice Breaker session to open the day\'s youth programming.'},
+      {id:'t4',title:'Youth — Ages 13–17: Walk It Like I Talk It (YAM/Youth Combined)',track:'yam',room:'Zurich Ballroom',type:'Workshop',duration:'9:00 AM–12:30 PM',tags:['yam','youth'],keynote:false,
+       speaker:[{name:'C. Morgan',init:'CM'},{name:'B. Dean',init:'BD'},{name:'E. Mimms',init:'EM'}],
+       desc:'Combined YAM and Youth session for ages 13–17. Theme: "Walk It Like I Talk It." Instructors: C. Morgan, B. Dean, and E. Mimms.'},
+      {id:'t6',title:'National Credential Committee',track:'leadership',room:'Versailles Foyer',type:'Meeting',duration:'75 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Credential Committee',init:'CC'}],
+       desc:'National Credential Committee meeting continuation.'},
+    ]},
+    {time:'10:00 AM',sessions:[
+      {id:'t5',title:'Youth Breakout Sessions — Ages 4–12',track:'youth',room:'Zurich Ballroom',type:'Breakout',duration:'10:00 AM–1:00 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Evang. Debbie Gildon',init:'DG'},{name:'Sis. Mardena Pullan',init:'MP'},{name:'Sis. Tiffany Shufford',init:'TS'}],
+       desc:'Age-group breakout sessions with lunch: Ages 4–6 (Evang. Debbie Gildon); Ages 7–9 (Sis. Mardena Pullan); Ages 10–12 (Sis. Tiffany Shufford). Lunch served 11:30 AM–1:00 PM.'},
+    ]},
+    {time:'9:30 AM',sessions:[
+      {id:'t7',title:'Managing Hypertension Workshop',track:'health',room:'Alpine I',type:'Workshop',duration:'60 min',tags:['health'],keynote:false,
+       speaker:[{name:'Missionary Blaine Morgan',init:'BM'}],
+       desc:'This workshop explains the importance of blood pressure management and provides practical ways to control blood pressure. Speaker: Missionary Blaine Morgan.'},
+      {id:'t8',title:'YAM — Walk It Like I Talk It: Youth Edition',track:'yam',room:'Zurich Ballroom',type:'Workshop',duration:'60 min',tags:['yam','youth'],keynote:false,
+       speaker:[{name:'Evangelist Joy Morgan',init:'JM'}],
+       desc:'National Young Adult Ministry session, youth edition. Theme: "Walk It Like I Talk It." Speaker: Evangelist Joy Morgan. (Combined YAM & Youth)'},
+      {id:'t9',title:'National Women\'s Work Ministry — You Are A Real Piece of Work',track:'ministry',room:'Matterhorn',type:'Workshop',duration:'45 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Minister Davonna Edeh',init:'DE'}],
+       desc:'Ephesians 2:10 reminds us that we are God\'s workmanship, created in Christ Jesus for good works. Walk confidently in your God-given purpose and unique gifts. Speaker: Minister Davonna Edeh.'},
+      {id:'t10',title:'National Men\'s Ministry — Building Kingdom Men for Such a Time as This',track:'ministry',room:'Bern',type:'Workshop',duration:'45 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Deacon Courtney Young',init:'CY'}],
+       desc:"This session addresses the various temptations that men must learn to spiritually and emotionally navigate in today's society. Speaker: Deacon Courtney Young."},
+    ]},
+    {time:'10:30 AM',sessions:[
+      {id:'t11',title:'Morning Worship — National Women\'s Work Ministry',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'90 min',tags:['worship','ministry'],keynote:true,
+       speaker:[{name:'Missionary Phyllis Pack',init:'PP'},{name:'Evang. Lavadie Townsend',init:'LT'},{name:'Evang. Stacy Copeland',init:'SC'}],
+       desc:'National Women\'s Work Ministry Morning Worship Service. Features the Women\'s Work Song & Pledge, National Women\'s Chorus, and sermon by Missionary Phyllis Pack, President National Women\'s Ministry, Temple #213, District 10. Moment of Decision by Evang. Dianna Culberson.'},
+    ]},
+    {time:'12:00 PM',sessions:[
+      {id:'t12',title:'National Usher\'s Luncheon',track:'ministry',room:'Hotel East C',type:'Luncheon',duration:'90 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Bro. Ernest Woods',init:'EW'}],
+       desc:'National Usher\'s Luncheon. Ticket required — $50.'},
+      {id:'t13',title:'National Women\'s Work Luncheon',track:'ministry',room:'Hotel East A/B Tower',type:'Luncheon',duration:'90 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Missionary Phyllis Pack',init:'PP'},{name:'Pastor Diane Hickmon',init:'DH'}],
+       desc:'National Women\'s Work Ministry Luncheon. Speaker: Pastor Diane Hickmon. Ticket required — $50.'},
+    ]},
+    {time:'1:00 PM',sessions:[
+      {id:'t5b',title:'Youth Choir Rehearsal',track:'youth',room:'Zurich Ballroom',type:'Rehearsal',duration:'1:00–2:45 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Music Team',init:'YM'}],
+       desc:'Youth Choir Rehearsal, all ages.'},
+    ]},
+    {time:'1:30 PM',sessions:[
+      {id:'t14',title:'Business Session',track:'leadership',room:'Versailles Ballroom',type:'Business',duration:'60 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'}],
+       desc:'Afternoon business session of the National Convention.'},
+    ]},
+    {time:'2:30 PM',sessions:[
+      {id:'t15',title:'Election — Voting',track:'leadership',room:'Alpine I & II',type:'Election',duration:'3 hrs',tags:['leadership'],keynote:false,
+       speaker:[{name:'National Facilitating Committee',init:'FC'}],
+       desc:'Official national election voting session facilitated by the National Facilitating Committee, chaired by Sis. Jacqueline Vaughn.'},
+    ]},
+    {time:'2:50 PM',sessions:[
+      {id:'t5c',title:'Youth Praise Dance Rehearsal',track:'youth',room:'Zurich Ballroom',type:'Rehearsal',duration:'2:50–4:00 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Dance Team',init:'YD'}],
+       desc:'Youth Praise Dance Rehearsal, all ages. Parent Pick Up at 4:00 PM.'},
+    ]},
+    {time:'4:00 PM',sessions:[
+      {id:'t16',title:'National Choir Rehearsal',track:'ministry',room:'Versailles Ballroom',type:'Rehearsal',duration:'60 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Elder Jason Williams',init:'JW'},{name:'Dorsey Doss',init:'DD'}],
+       desc:'National Choir rehearsal in preparation for the evening worship service.'},
+    ]},
+    {time:'6:15 PM',sessions:[
+      {id:'t17',title:'National Usher\'s Program',track:'ministry',room:'Versailles Ballroom',type:'Program',duration:'40 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Bro. Ernest Woods',init:'EW'}],
+       desc:'The National Usher\'s Ministry Program celebrating the service and dedication of ushers across the national body.'},
+    ]},
+    {time:'7:00 PM',sessions:[
+      {id:'t18',title:'Evening Worship Service',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'2+ hrs',tags:['worship'],keynote:false,
+       speaker:[{name:'Pastor T.D. Price',init:'TP'}],
+       desc:'Evening Worship Service. Features recognition & blessing of military personnel (Bishop Ernest Dowdy), National Chorus selections, Blessing of the Oil, and sermon by Pastor T.D. Price.'},
+    ]},
+    {time:'9:00 PM',sessions:[
+      {id:'t5d',title:'Youth Praise Teens & Movie Night',track:'youth',room:'Zurich Ballroom',type:'Event',duration:'9:00–11:00 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Leadership',init:'YL'}],
+       desc:'Praise Teens and Movie Night for youth attendees.'},
+    ]},
+  ],
+  fri:[
+    {time:'7:30 AM',sessions:[
+      {id:'f1',title:'National Women\'s Work Staff Breakfast',track:'ministry',room:'Matterhorn',type:'Breakfast',duration:'TBD',tags:['ministry'],keynote:false,
+       speaker:[{name:'Missionary Phyllis Pack',init:'PP'}],
+       desc:'National Women\'s Work Ministry Staff Breakfast.'},
+    ]},
+    {time:'8:00 AM',sessions:[
+      {id:'f2',title:'Visual Arts Display',track:'ministry',room:'Bern Foyer',type:'Display',duration:'All Day',tags:['ministry'],keynote:false,
+       speaker:[{name:'Visual Arts Team',init:'VA'}],
+       desc:'Visual arts display open in the Bern Foyer.'},
+    ]},
+    {time:'8:30 AM',sessions:[
+      {id:'f3',title:'Morning Praise and Worship Service',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'60 min',tags:['worship'],keynote:false,
+       speaker:[{name:'Evangelist Norma Champ',init:'NC'}],
+       desc:'Morning Praise and Worship Service. Morning Exhortation by Evangelist Norma Champ, Temple #10, Kansas City, KS, District 7.'},
+    ]},
+    {time:'9:30 AM',sessions:[
+      {id:'f4',title:'National Women\'s Work Ministry — Session 3 Part 1: Missing in Action',track:'ministry',room:'Matterhorn',type:'Workshop',duration:'90 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Evangelist Gail Plunkett',init:'GP'}],
+       desc:'Reflect, power up, and show up for what God has called you to do. Speaker: Evangelist Gail Plunkett.'},
+      {id:'f5',title:'National Women\'s Work Ministry — Session 3 Part 2: Financially Fit: Building Strong Money Muscles for Life',track:'ministry',room:'Matterhorn',type:'Workshop',duration:'90 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Pastor Tangela Brown',init:'TB'}],
+       desc:'Learn practical tools for budgeting, saving, understanding credit, and making wise money decisions. Speaker: Pastor Tangela Brown.'},
+      {id:'f6',title:'National Ordination Committee',track:'leadership',room:'Alpine II',type:'Meeting',duration:'90 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Overseer Elston Carter',init:'EC'}],
+       desc:'National Ordination Committee meeting.'},
+      {id:'f7',title:'Ministerial Institute — Church & AI: Introduction to AI for the 21st Century Church',track:'leadership',room:'Alpine I',type:'Workshop',duration:'90 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Dr. Cynthia Hines',init:'CH'}],
+       desc:'Ministerial Institute session exploring Artificial Intelligence and its applications for the modern church. Theme: "Church and AI — Introduction to AI for the 21st Century Church." Speaker: Dr. Cynthia Hines, W.E. Crumes Ministerial Institute Dean.'},
+    ]},
+    {time:'10:00 AM',sessions:[
+      {id:'f8',title:'Youth Outing — Kokomo Joe\'s',track:'youth',room:'Offsite',type:'Outing',duration:'10:00 AM–3:00 PM',tags:['youth'],keynote:false,
+       speaker:[{name:'Youth Leadership',init:'YL'}],
+       desc:'Youth Outing at Kokomo Joe\'s. Transportation details provided at registration.'},
+    ]},
+    {time:'11:30 AM',sessions:[
+      {id:'f9',title:'National Usher Ministry',track:'ministry',room:'Bern',type:'Meeting',duration:'90 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Bro. Ernest Woods',init:'EW'}],
+       desc:'National Usher Ministry session.'},
+    ]},
+    {time:'1:00 PM',sessions:[
+      {id:'f10',title:'National Men\'s Ministry Excursion — The Rawlings Experience',track:'ministry',room:'Offsite',type:'Outing',duration:'4 hrs',tags:['ministry'],keynote:false,
+       speaker:[{name:'Deacon Courtney Young',init:'CY'}],
+       desc:'Men\'s Ministry Excursion to The Rawlings Experience. Swing the latest Rawlings bats in state-of-the-art batting cages, design your own custom glove, and explore priceless baseball artifacts. Lunch provided. Ticket required — $65.'},
+      {id:'f11',title:'National Minister\'s Wives Luncheon',track:'ministry',room:'Hotel East B/C Tower',type:'Luncheon',duration:'2 hrs',tags:['ministry'],keynote:false,
+       speaker:[{name:'Evang. Roslyn Waddell',init:'RW'}],
+       desc:'National Minister\'s Wives Luncheon. Ticket required — $50.'},
+    ]},
+    {time:'7:00 PM',sessions:[
+      {id:'f13',title:'National Music Department — Holy Ghost Party Musical',track:'worship',room:'Versailles Ballroom',type:'Musical',duration:'2 hrs',tags:['worship'],keynote:true,
+       speaker:[{name:'Elder Jason Williams',init:'JW'},{name:'Dorsey Doss',init:'DD'}],
+       desc:'The National Music Department presents the "Holy Ghost Party Musical." Directed by Elder Jason Williams (Music Manager) and Dorsey Doss (Business Manager). A full musical celebration featuring the National Chorus and Fine Arts Ministry.'},
+    ]},
+  ],
+  sat:[
+    {time:'8:00 AM',sessions:[
+      {id:'s1',title:'National Auxiliary Breakfast',track:'ministry',room:'Matterhorn',type:'Breakfast',duration:'TBD',tags:['ministry'],keynote:false,
+       speaker:[{name:'Convention Leadership',init:'CL'}],
+       desc:'National Auxiliary Breakfast for convention ministry leaders and auxiliaries.'},
+    ]},
+    {time:'9:00 AM',sessions:[
+      {id:'s2',title:'Men\'s Health Initiative — Prostate Screening',track:'health',room:'Alpine I',type:'Health',duration:'2 hrs',tags:['health'],keynote:false,
+       speaker:[{name:'Deacon Courtney Young',init:'CY'}],
+       desc:'Health professionals will provide prostate cancer screening in collaboration with the Health Committee. This is a simple blood test. Open to all male attendees.'},
+    ]},
+    {time:'10:00 AM',sessions:[
+      {id:'s3',title:'Business Session',track:'leadership',room:'Versailles Ballroom',type:'Business',duration:'60 min',tags:['leadership'],keynote:false,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'}],
+       desc:'Morning business session of the National Convention presided over by Chief Bishop Rex Waddell.'},
+    ]},
+    {time:'10:00 AM',sessions:[
+      {id:'s4',title:'Family Time',track:'general',room:'TBD',type:'Free Time',duration:'10:00 AM–6:00 PM',tags:['general'],keynote:false,
+       speaker:[{name:'All Attendees',init:'FA'}],
+       desc:'Open family time for all convention attendees. Explore St. Louis or enjoy the hotel amenities.'},
+    ]},
+    {time:'11:00 AM',sessions:[
+      {id:'s5',title:'Ordination Ceremony',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'TBD',tags:['worship','ministry'],keynote:true,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'}],
+       desc:'The official Ordination Ceremony recognizing newly ordained ministers across the national body. Presided over by Chief Bishop Rex Waddell.'},
+    ]},
+    {time:'7:00 PM',sessions:[
+      {id:'s6',title:'National Awards Gala',track:'general',room:'Zurich Ballroom',type:'Gala',duration:'2 hrs',tags:['general'],keynote:true,
+       speaker:[{name:'Pastor David T. Hawkins',init:'DH'}],
+       desc:'The National Awards Gala celebrating outstanding leaders, ministries, and churches from across the national body. Speaker: Pastor David T. Hawkins, Living the Word Church, Collinsville, IL. Ticket required — $60.'},
+    ]},
+  ],
+  sun:[
+    {time:'9:00 AM',sessions:[
+      {id:'su1',title:'Sunday School',track:'ministry',room:'Versailles Ballroom',type:'Service',duration:'90 min',tags:['ministry'],keynote:false,
+       speaker:[{name:'Overseer David Flournoy',init:'DF'}],
+       desc:'Sunday School led by Overseer David Flournoy, Sunday School Department Superintendent. Age-group classes: Young Adult (Versailles), Teen (Bern), Inteen (Alpine I), Youth (Alpine II).'},
+    ]},
+    {time:'10:45 AM',sessions:[
+      {id:'su2',title:'Morning Worship Service — Chief\'s Homily',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'2 hrs',tags:['worship'],keynote:true,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'},{name:'Vice-Chief Bishop Aaron Scruggs',init:'AS'}],
+       desc:'The closing morning worship service of the 134th National Convention. Features processional of National Women\'s Work Ministry and National Overseer\'s Council, Memorial Program (Bishop Joseph Mitcham), National Chorus selections, and the Chief Bishop\'s Homily delivered by Chief Bishop Rex Waddell. Includes Consecration of Bishops and Presentation by Vice-Chief Bishop Aaron Scruggs.'},
+    ]},
+    {time:'5:00 PM',sessions:[
+      {id:'su3',title:'Closing Service & Appointments',track:'worship',room:'Versailles Ballroom',type:'Service',duration:'TBD',tags:['worship','leadership'],keynote:true,
+       speaker:[{name:'Chief Bishop Rex Waddell',init:'RW'}],
+       desc:'The official Closing Service and Appointments of the 134th National Convention, C.W.F.F. The formal sending forth of all delegates. Presided over by Chief Bishop Rex Waddell.'},
+    ]},
+  ],
+};
+
+/* ── State ── */
+let activeDay='tue';
+let activeFilter='all';
+
+/* ── Build a day panel ── */
+function buildDay(dayKey){
+  const container=document.getElementById('day-'+dayKey);
+  if(!container)return;
+  container.innerHTML='';
+  const groups=SESSIONS[dayKey];
+  if(!groups){container.innerHTML='<div class="empty-msg"><i class="ti ti-calendar-off"></i>No sessions scheduled.</div>';return;}
+  let anyVisible=false;
+  groups.forEach(group=>{
+    const visible=group.sessions.filter(s=>activeFilter==='all'||s.tags.includes(activeFilter));
+    if(!visible.length)return;
+    anyVisible=true;
+    const grp=document.createElement('div');
+    grp.className='time-group';
+    grp.innerHTML=`<div class="time-label"><i class="ti ti-clock"></i>${group.time}</div>`;
+    visible.forEach(s=>{
+      const tc=TRACK_COLORS[s.track]||TRACK_COLORS.general;
+      const chips=s.speaker.map(sp=>`<div class="speaker-chip"><div class="speaker-avatar">${sp.init}</div><span class="speaker-name">${sp.name}</span></div>`).join('');
+      const card=document.createElement('div');
+      card.className='session-card';
+      card.id='card-'+s.id;
+      card.setAttribute('role','button');
+      card.setAttribute('aria-expanded','false');
+      card.innerHTML=`
+        <div class="card-top">
+          <div class="card-track" style="background:${tc}"></div>
+          <div class="card-body">
+            ${s.keynote?'<div class="keynote-flag"><i class="ti ti-star"></i> Keynote / Featured</div>':''}
+            <div class="card-title">${s.title}</div>
+            <div class="card-meta">
+              <span class="card-time-chip"><i class="ti ti-clock"></i>${s.duration}</span>
+              <span class="badge badge-room"><i class="ti ti-map-pin"></i>${s.room}</span>
+              <span class="badge badge-type">${s.type}</span>
+            </div>
+          </div>
+          <i class="ti ti-chevron-down card-chevron"></i>
+        </div>
+        <div class="card-details">
+          <p class="detail-desc">${s.desc}</p>
+          <div class="speakers-label">${s.type==='Service'||s.type==='Musical'?'Featured Speaker(s) and/or Facilitator(s)':'Presenter(s)'}</div>
+          <div class="speaker-chips">${chips}</div>
+        </div>`;
+      card.addEventListener('click',()=>{
+        const expanded=card.classList.toggle('expanded');
+        card.setAttribute('aria-expanded',expanded);
+      });
+      grp.appendChild(card);
+    });
+    container.appendChild(grp);
+  });
+  if(!anyVisible){
+    container.innerHTML='<div class="empty-msg"><i class="ti ti-calendar-off"></i>No sessions match this filter for this day.</div>';
+  }
+}
+
+/* ── Switch day tab ── */
+function switchDay(day){
+  const days=['tue','wed','thu','fri','sat','sun'];
+  document.querySelectorAll('.date-tab').forEach((t,i)=>t.classList.toggle('active',days[i]===day));
+  document.querySelectorAll('.day-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('day-'+day).classList.add('active');
+  activeDay=day;
+  buildDay(day);
+}
+
+/* ── Set filter pill ── */
+function setFilter(f,el){
+  activeFilter=f;
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  ['tue','wed','thu','fri','sat','sun'].forEach(buildDay);
+}
+
+/* ── Info drawer ── */
+function openInfo(){
+  document.getElementById('infoOverlay').classList.add('open');
+  document.getElementById('infoDrawer').style.display='block';
+}
+function closeInfo(){
+  document.getElementById('infoOverlay').classList.remove('open');
+  document.getElementById('infoDrawer').style.display='none';
+}
+function switchInfoTab(tab){
+  document.querySelectorAll('.info-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.info-panel').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+}
+
+/* ── Init ── */
+['tue','wed','thu','fri','sat','sun'].forEach(buildDay);
+
+// Map convention dates to day keys
+const DATE_MAP={
+  '2026-07-14':'tue',
+  '2026-07-15':'wed',
+  '2026-07-16':'thu',
+  '2026-07-17':'fri',
+  '2026-07-18':'sat',
+  '2026-07-19':'sun'
+};
+
+// Get today's date in local time as YYYY-MM-DD
+const today=new Date();
+const yyyy=today.getFullYear();
+const mm=String(today.getMonth()+1).padStart(2,'0');
+const dd=String(today.getDate()).padStart(2,'0');
+const todayKey=`${yyyy}-${mm}-${dd}`;
+
+// Default to today's day if within convention, otherwise first day
+const startDay=DATE_MAP[todayKey]||'tue';
+switchDay(startDay);
+
+/* ── Theme toggle ── */
+let isDark=false;
+
+function toggleTheme(){
+  isDark=!isDark;
+  const body=document.body;
+  const icon=document.getElementById('theme-icon');
+  const label=document.getElementById('theme-label');
+  if(isDark){
+    body.classList.remove('light-mode');
+    body.classList.add('dark-mode');
+    icon.className='ti ti-moon';
+    label.textContent='Dark';
+  } else {
+    body.classList.remove('dark-mode');
+    body.classList.add('light-mode');
+    icon.className='ti ti-sun';
+    label.textContent='Light';
+  }
+}
+
+// Initialize in light mode
+document.body.classList.add('light-mode');
+</script>
+</body>
+</html>
